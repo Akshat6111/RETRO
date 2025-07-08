@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Retro Snake</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0a0a23;
+      font-family: 'Press Start 2P', monospace;
+      color: lime;
+    }
+    canvas {
+      background-color: #111132;
+      display: block;
+      margin: 0 auto;
+      image-rendering: pixelated;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body class="text-center py-6 bg-[#0a0a23] font-['Press_Start_2P'] text-green-300">
+
+  <h1 class="text-3xl text-green-400 mb-4">SNAKE</h1>
+
+  <!-- Retro Frame -->
+  <div class="inline-block border-4 border-green-500 shadow-lg p-2 relative">
+    <canvas id="game" width="400" height="400" class="block bg-[#111132]"></canvas>
+
+    <!-- Game Over Popup -->
+    <div id="gameOverPopup" class="absolute inset-0 bg-[#0a0a23ee] backdrop-blur-sm flex flex-col items-center justify-center text-green-300 text-lg hidden">
+      <p class="mb-4">💀 GAME OVER 💀</p>
+      <button onclick="startGame()" class="bg-pink-500 hover:bg-pink-400 text-black px-4 py-2 rounded shadow">🔁 Restart</button>
+    </div>
+  </div>
+
+  <h2 id="score" class="text-green-300 text-xl mt-4">Score: 0</h2>
+  <button onclick="startGame()" class="mt-4 bg-pink-500 hover:bg-pink-400 text-black px-4 py-2 rounded shadow">🔁 Restart</button>
+
+  <script src="snake.js"></script>
+</body>
+
+</html>

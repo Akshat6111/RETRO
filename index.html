@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RETROSPACE OS</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+<script src="firebase-config.js"></script>
+  <script src="app.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Press Start 2P', monospace;
+    }
+    .explode-letter {
+  display: inline-block;
+  transition: transform 0.4s ease, opacity 0.4s ease, color 0.4s ease;
+  --dx: 0;
+  --dy: 0;
+  --r: 0;
+}
+/* html, body, * {
+  cursor: url('assets/Retro\ Fighter\ Jet\ &\ Pixelated\ Space\ Alien\ 3D--cursor--SweezyCursors..cur'), auto;
+} */
+  .explode-letter.explode {
+  opacity: 0;
+  transform: translate(
+    calc(var(--dx) * 1px),
+    calc(var(--dy) * 1px)
+  ) rotate(calc(var(--r) * 1deg)) scale(0.4);
+  filter: blur(1px);
+  text-shadow:
+    0 0 4px #00ffff,
+    0 0 8px #00ffff,
+    0 0 16px #00ffff,
+    0 0 32px #00ffff;
+}
+
+  </style>
+</head>
+<body class="bg-[#0a0a23] text-cyan-300">
+  <div id="explode-text" class="text-center text-4xl py-6 font-heading text-cyan-400 flex justify-center gap-2">
+  <!-- Letters will be injected via JS -->
+</div>
+
+  <div class="flex justify-center gap-4 p-4">
+    <!-- GameBox -->
+    <div id="gamebox" class="w-64 bg-[#111132] border-4 border-blue-500 p-4 shadow-lg">
+  <h2 class="text-xl mb-2">🎮 GameBox</h2>
+  <a href="gamebox/tetris/tetris.html">
+    <button class="w-full bg-yellow-500 hover:bg-yellow-400 text-black px-2 py-1 mb-2">TETRIS</button>
+  </a>
+  <a href="gamebox/snake/snake.html">
+    <button class="w-full bg-green-500 hover:bg-green-400 text-black px-2 py-1 mb-2">SNAKE</button>
+  </a>
+  <a href="gamebox/pong.html">
+    <button class="w-full bg-orange-500 hover:bg-orange-400 text-black px-2 py-1">PONG</button>
+  </a>
+</div>
+
+  <!-- Cassette Spotify Player -->
+<div id="spotify" class="w-[380px] bg-[#0b0b1d] border-4 border-fuchsia-500 p-4 shadow-lg flex flex-col items-center font-mono text-white relative">
+  <h2 class="text-xl text-purple-400 mb-3">📼 Cassette Beats</h2>
+
+  <!-- Cassette Frame with window -->
+  <div class="relative w-full h-[180px] mb-4">
+    <!-- Spotify Embed -->
+    <iframe
+      class="absolute top-[60px] left-[40px] w-[300px] h-[80px] z-0 rounded"
+      src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator"
+      frameborder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
+
+    <!-- Cassette image with transparent window -->
+    <img src="assets/casette.png" alt="Cassette Shell"
+      class="absolute top-0 left-0 w-full z-10 pointer-events-none" />
+  </div>
+
+  <!-- Retro Buttons -->
+  <div class="flex justify-between gap-3 w-full px-6">
+    <button class="bg-pink-500 hover:bg-pink-400 px-3 py-1 rounded shadow text-black">⏮</button>
+    <button class="bg-green-500 hover:bg-green-400 px-3 py-1 rounded shadow text-black">▶</button>
+    <button class="bg-yellow-400 hover:bg-yellow-300 px-3 py-1 rounded shadow text-black">⏸</button>
+    <button class="bg-blue-500 hover:bg-blue-400 px-3 py-1 rounded shadow text-white">⏭</button>
+  </div>
+</div>
+
+
+    <!-- NotedPad -->
+    <div id="notedpad" class="w-64 bg-[#111132] border-4 border-blue-500 p-4 shadow-lg">
+  <h2 class="text-xl mb-2">📝 NotedPad</h2>
+  <textarea id="note" class="w-full h-32 bg-black text-white p-2 resize-none"></textarea>
+  <button onclick="startVoice()" class="mt-2 bg-cyan-500 hover:bg-cyan-400 text-black w-full px-2 py-1">🎤 Voice</button>
+  <button onclick="saveNote()" class="mt-2 bg-green-500 hover:bg-green-400 text-black w-full px-2 py-1">💾 Save</button>
+  <button onclick="loadNote()" class="mt-2 bg-blue-500 hover:bg-blue-400 text-white w-full px-2 py-1">📂 Load</button>
+</div>
+
+  </div>
+</body>
+</html>

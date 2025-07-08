@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Retro Tetris</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Press Start 2P', monospace;
+      background-color: #0a0a23;
+      color: cyan;
+    }
+    canvas {
+      background-color: #111132;
+      display: block;
+      margin: 0 auto;
+      image-rendering: pixelated;
+    }
+  </style>
+  <link rel="preload" href="../assets/retro-tetris-loop.mp3" as="audio" />
+
+</head>
+<body class="text-center py-6">
+  <h1 class="text-3xl text-cyan-400 mb-4">TETRIS</h1>
+  <canvas id="tetris" width="240" height="400"></canvas>
+  <h2 id="score" class="text-cyan-300 text-xl mt-4">Score: 0</h2>
+<button onclick="restartGame()" class="mt-4 bg-pink-500 hover:bg-pink-400 text-black px-4 py-2 rounded shadow">🔁 Restart</button>
+<button id="toggleMusic" class="mt-4 bg-yellow-400 hover:bg-yellow-300 text-black px-4 py-2 rounded shadow font-mono text-sm">
+  🔊 Music OFF
+</button>
+<audio id="retroMusic" src="/assets/tetris.mp3" loop></audio>
+
+
+
+
+  <script src="tetris.js"></script>
+</body>
+</html>
