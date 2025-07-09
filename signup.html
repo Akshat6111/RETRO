@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Signup - VINTAGE CLOUD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0b0b2a;
+      font-family: 'Press Start 2P', monospace;
+      color: #6de0ff;
+      image-rendering: pixelated;
+      cursor: url('https://cur.cursors-4u.net/cursors/cur-11/cur1046.cur'), auto;
+    }
+    input::placeholder {
+      color: #a0ffa0;
+    }
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 5px #00ffcc;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+  <div class="flex flex-col items-center space-y-6">
+    <h1 class="text-xl text-cyan-300 flex items-center gap-2">
+      🧾 <span>SIGN UP</span>
+    </h1>
+
+    <form class="border-2 border-cyan-400 p-6 w-80 flex flex-col space-y-4 bg-[#080821] shadow-lg">
+      <input
+        name="email"
+        type="email"
+        placeholder="Email"
+        class="w-full bg-black text-green-400 border border-lime-400 p-3 text-xs"
+        required
+      />
+      <input
+        name="password"
+        type="password"
+        placeholder="Password"
+        class="w-full bg-black text-green-400 border border-lime-400 p-3 text-xs"
+        required
+      />
+      <button
+        type="submit"
+        class="bg-pink-500 text-black hover:bg-pink-600 p-3 text-xs tracking-widest border border-black transition"
+      >
+        CREATE ACCOUNT
+      </button>
+    </form>
+    <script type="module" src = "signup.js"></script>
+  </div>
+</body>
+</html>

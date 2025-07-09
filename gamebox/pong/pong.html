@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Retro Pong</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Press Start 2P', monospace;
+      background-color: #0a0a23;
+      color: lime;
+    }
+
+    .center-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    canvas {
+      background-color: #111132;
+      image-rendering: pixelated;
+      border: 6px solid lime;
+      display: block;
+    }
+
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #0a0a23;
+      border: 4px solid cyan;
+      color: white;
+      font-family: 'Press Start 2P', monospace;
+      padding: 2rem;
+      z-index: 100;
+      text-align: center;
+    }
+
+    #scoreDisplay {
+      font-size: 16px;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="center-container">
+    <h1 class="text-3xl text-cyan-400 mb-4">RETRO PONG</h1>
+    <canvas id="pong" width="800" height="500"></canvas>
+    <div id="scoreDisplay" class="text-green-400 mt-2">Player: 0 | Computer: 0</div>
+  </div>
+
+  <div id="popup">
+    <div class="text-xl mb-4">🏁 Game Over</div>
+    <button onclick="restartGame()" class="bg-yellow-300 hover:bg-yellow-200 text-black px-4 py-2 rounded">🔁 Restart</button>
+  </div>
+
+  <script src="pong.js"></script>
+</body>
+</html>
